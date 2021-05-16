@@ -47,6 +47,12 @@
     sudo rm -rfv ~/Desktop/*
     sudo rm -rfv ~/Downloads/*
 
+    echo "Clearing Clipboard..."
+    pbcopy < /dev/null
+
+    echo "Clearing Recent Items"
+    osascript -e 'tell app "System Events" to click menu item "Clear Menu" of menu 1 of menu item "Recent Items" of menu 1 of menu bar item "Apple" of menu bar 1 of process "Finder"'
+
     echo "Cleaning Trash..."
     osascript -e 'tell application "Finder" to set warns before emptying of trash to false' &>/dev/null
     osascript -e 'tell application "Finder" to empty trash' &>/dev/null
